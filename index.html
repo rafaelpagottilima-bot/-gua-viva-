@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consciência Hídrica | Preservando o Recurso da Vida</title>
+    
+    <!-- Tipografia Open Sans do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================
+           1. VARIÁVEIS CSS E RESET INICIAL
+           ========================================== */
+        :root {
+            --cor-primaria: #0077b6;
+            --cor-secundaria: #023e8a;
+            --cor-destaque: #2a9d8f;
+            --cor-fundo-leve: #f4f9fc;
+            --cor-texto: #2b2d42;
+            --cor-texto-suave: #4a5568;
+            --cor-branca: #ffffff;
+            --fonte-principal: 'Open Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--fonte-principal);
+            color: var(--cor-texto);
+            background-color: var(--cor-branca);
+            line-height: 1.6;
+        }
+
+        /* ==========================================
+           2. CABEÇALHO E NAVEGAÇÃO
+           ========================================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--cor-branca);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--cor-primaria);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--cor-texto);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--cor-primaria);
+        }
+
+        /* Menu Mobile Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--cor-texto);
+            border-radius: 2px;
+        }
+
+        /* ==========================================
+           3. ESTILOS GERAIS DE SEÇÃO
+           ========================================== */
+        section {
+            padding: 5rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .titulo-secao {
+            font-size: 2.2rem;
+            color: var(--cor-secundaria);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .subtitulo-secao {
+            text-align: center;
+            color: var(--cor-texto-suave);
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            font-size: 1.1rem;
+        }
+
+        /* ==========================================
+           4. SEÇÃO HERO (PÁGINA INICIAL)
+           ========================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 100%);
+            padding-top: 6rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--cor-secundaria);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--cor-texto-suave);
+            max-width: 800px;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-scroll {
+            display: inline-block;
+            background-color: var(--cor-destaque);
+            color: var(--cor-branca);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-scroll:hover {
+            background-color: #218376;
+        }
+
+        /* ==========================================
+           5. SEÇÃO SOBRE A INICIATIVA
+           ========================================== */
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .texto-historico {
+            background-color: var(--cor-fundo-leve);
+            padding: 2rem;
+            border-left: 4px solid var(--cor-primaria);
+            border-radius: 4px;
+        }
+
+        .mvv-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card-mvv {
+            background: var(--cor-branca);
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .card-mvv h3 {
+            color: var(--cor-primaria);
+            margin-bottom: 1rem;
+        }
+
+        /* ==========================================
+           6. SEÇÃO CONCEITOS FUNDAMENTAIS
+           ========================================== */
+        .conceitos-bg {
+            background-color: var(--cor-fundo-leve);
+            max-width: 100%;
+        }
+
+        .conceitos-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .definicao-agua {
+            margin-bottom: 3rem;
+            background-color: var(--cor-branca);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .pegada-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card-pegada {
+            background-color: var(--cor-branca);
+            border-radius: 8px;
+            padding: 2rem;
+            border-top: 5px solid;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .card-pegada.azul { border-color: #0077b6; }
+        .card-pegada.verde { border-color: #2a9d8f; }
+        .card-pegada.cinza { border-color: #6c757d; }
+
+        .card-pegada h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-pegada.azul h4 { color: #0077b6; }
+        .card-pegada.verde h4 { color: #2a9d8f; }
+        .card-pegada.cinza h4 { color: #6c757d; }
+
+        /* ==========================================
+           7. SEÇÃO DICAS PRÁTICAS
+           ========================================== */
+        .dicas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card-dica {
+            border: 1fr solid #e2e8f0;
+            background-color: var(--cor-branca);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-dica h4 {
+            color: var(--cor-secundaria);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .tag-conexao {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .tag-azul { background-color: #e0f2fe; color: #0077b6; }
+        .tag-verde { background-color: #e6f4f1; color: #2a9d8f; }
+        .tag-cinza { background-color: #f1f3f5; color: #495057; }
+
+        /* ==========================================
+           8. RODAPÉ INFORMATIVO
+           ========================================== */
+        .footer {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-branca);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* ==========================================
+           9. RESPONSIVIDADE (MEDIA QUERIES)
+           ========================================== */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--cor-branca);
+                flex-direction: column;
+                padding: 1.5rem;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#hero" class="logo">💧 Consciência Hídrica</a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#hero">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#conceitos">Conceitos</a></li>
+                <li><a href="#dicas">Dicas Práticas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 1. PÁGINA INICIAL (HERO SECTION) -->
+        <section id="hero" class="hero">
+            <h1>Água: O Recurso Vital Que Move o Nosso Futuro</h1>
+            <p>Mais de 2 bilhões de pessoas no mundo vivem sob estresse hídrico. A preservação da água não é uma escolha de amanhã, mas a responsabilidade de hoje.</p>
+            <a href="#sobre" class="btn-scroll">Explorar a Iniciativa ↓</a>
+        </section>
+
+        <!-- 2. SOBRE A INICIATIVA -->
+        <section id="sobre">
+            <h2 class="titulo-secao">Sobre a Iniciativa</h2>
+            <p class="subtitulo-secao">Entenda a urgência da proteção dos recursos hídricos globais e a nossa motivação educacional.</p>
+            
+            <div class="sobre-grid">
+                <div class="texto-historico">
+                    <h3>Histórico e Motivação</h3>
+                    <p style="margin-bottom: 1rem;">
+                        Esta iniciativa nasceu da urgente necessidade de traduzir dados científicos sobre a crise hídrica em conhecimento acessível para toda a sociedade. Frente às mudanças climáticas e ao crescimento demográfico acelerado, a água potável tornou-se um dos recursos mais vulneráveis do planeta.
+                    </p>
+                    <p>
+                        A nossa motivação é impulsionada pela urgência de combater o desperdício invisível. Acreditamos que a conscientização é o primeiro e mais poderoso passo para a regeneração dos ecossistemas e garantia da segurança hídrica global.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mvv-container">
+                <div class="card-mvv">
+                    <h3>Missão</h3>
+                    <p>Educar e capacitar indivíduos sobre a gestão sustentável da água através de dados claros e práticas diárias transformadoras.</p>
+                </div>
+                <div class="card-mvv">
+                    <h3>Visão</h3>
+                    <p>Tornar-se uma referência em conscientização ambiental, onde cada cidadão entenda o verdadeiro valor da sua pegada hídrica.</p>
+                </div>
+                <div class="card-mvv">
+                    <h3>Valores</h3>
+                    <p>Responsabilidade socioambiental, transparência científica, educação acessível e compromisso com o futuro do planeta.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CONCEITOS FUNDAMENTAIS -->
+        <div class="conceitos-bg">
+            <section id="conceitos" class="conceitos-wrapper">
+                <h2 class="titulo-secao">Conceitos Fundamentais</h2>
+                <p class="subtitulo-secao">Aprofunde o seu conhecimento sobre a água e a metodologia internacional da Pegada Hídrica.</p>
+
+                <div class="definicao-agua">
+                    <h3>O que é a Água e sua Importância Socioambiental</h3>
+                    <p style="margin-top: 0.5rem;">
+                        A água ($\text{H}_2\text{O}$) é uma substância química essencial para todas as formas conhecidas de vida. Embora cubra cerca de 71% da superfície terrestre, apenas **2,5% é água doce** — e menos de 1% está facilmente acessível em rios e lagos. Ela é a espinha dorsal da saúde humana, sustentação dos ecossistemas, produção de alimentos e desenvolvimento industrial.
+                    </p>
+                </div>
+
+                <h3 style="text-align: center; margin-bottom: 2rem; color: var(--cor-secundaria);">Entendendo a Pegada Hídrica</h3>
+                <div class="pegada-grid">
+                    <div class="card-pegada azul">
+                        <h4>💧 Água Azul</h4>
+                        <p>Refere-se ao volume de água doce superficial e subterrânea (rios, lagos, aquíferos) consumido. É a água que captamos diretamente para abastecimento doméstico, irrigação agrícola e processos industriais.</p>
+                    </div>
+                    <div class="card-pegada verde">
+                        <h4>🌱 Água Verde</h4>
+                        <p>Corresponde ao volume de água da chuva armazenado na zona radicular do solo, evaporado ou transpirado pelas plantas. É vital para a agricultura de sequeiro, florestas e ecossistemas naturais.</p>
+                    </div>
+                    <div class="card-pegada cinza">
+                        <h4>🏭 Água Cinza</h4>
+                        <p>Trata-se do volume teórico de água doce necessário para assimilar ou diluir a carga de poluentes gerada por um processo (doméstico ou industrial) até atingir os padrões de qualidade ambiental.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 4. DICAS PRÁTICAS DE ECONOMIA -->
+        <section id="dicas">
+            <h2 class="titulo-secao">Dicas Práticas de Economia</h2>
+            <p class="subtitulo-secao">Ações simples no dia a dia que reduzem o impacto direto nas três dimensões da água.</p>
+
+            <div class="dicas-grid">
+                <!-- Dica 1 -->
+                <div class="card-dica">
+                    <div>
+                        <h4>1. Fechar a Torneira ao Escovar os Dentes</h4>
+                        <p>Manter a torneira aberta enquanto escova os dentes gasta cerca de 12 litros de água. Ao fechá-la, o consumo cai para menos de 1 litro por escovação.</p>
+                    </div>
+                    <span class="tag-conexao tag-azul">Reduz Água Azul</span>
+                </div>
+
+                <!-- Dica 2 -->
+                <div class="card-dica">
+                    <div>
+                        <h4>2. Reduzir o Tempo de Banho</h4>
+                        <p>Um banho de 15 minutos consome cerca de 135 litros de água. Reduzir o tempo para 5 minutos economiza mais de 90 litros de água potável em cada utilização.</p>
+                    </div>
+                    <span class="tag-conexao tag-azul">Reduz Água Azul</span>
+                </div>
+
+                <!-- Dica 3 -->
+                <div class="card-dica">
+                    <div>
+                        <h4>3. Máquina de Lavar na Capacidade Máxima</h4>
+                        <p>Lavar roupas em capacidade total otimiza os ciclos e reduz a quantidade de sabão e efluentes químicos descartados na rede de esgoto.</p>
+                    </div>
+                    <span class="tag-conexao tag-cinza">Reduz Água Cinza</span>
+                </div>
+
+                <!-- Dica 4 -->
+                <div class="card-dica">
+                    <div>
+                        <h4>4. Ensaboa a Louça com a Torneira Fechada</h4>
+                        <p>Ao lavar a louça com a torneira continuamente aberta, gastam-se até 240 litros. Abrir apenas no momento do enxágue reduz esse consumo para 20 litros.</p>
+                    </div>
+                    <span class="tag-conexao tag-azul">Reduz Água Azul</span>
+                </div>
+
+                <!-- Dica 5 -->
+                <div class="card-dica">
+                    <div>
+                        <h4>5. Consumo Consciente de Moda e Vestuário</h4>
+                        <p>A produção de uma única calça jeans exige cerca de 10.000 litros de água. O cultivo do algodão exige imensas quantidades de **Água Verde**, enquanto o tingimento e lavagem dos tecidos geram um alto volume de **Água Cinza** devido aos produtos químicos.</p>
+                    </div>
+                    <span class="tag-conexao tag-verde">Impacto em Água Verde & Cinza</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <p>© 2026 Consciência Hídrica — Plataforma Educativa e Informativa pela Preservação da Água.</p>
+    </footer>
+
+    <!-- JS APENAS PARA O MENU MOBILE -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Fechar o menu ao clicar num link no mobile
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
